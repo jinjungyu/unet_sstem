@@ -3,7 +3,6 @@
 import os
 import numpy as np
 from PIL import Image
-import matplotlib.pyplot as plt
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(ROOT_DIR,"dataset")
@@ -72,6 +71,9 @@ for i in range(num_test):
 
     np.save(os.path.join(TEST_DIR,f'input_{i:03d}.npy'),input_)
     np.save(os.path.join(TEST_DIR,f'label_{i:03d}.npy'),label_)
+
+# if you want to visualize images
+# import matplotlib.pyplot as plt
 
 # plt.subplot(121)
 # plt.title("input")

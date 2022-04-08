@@ -1,6 +1,6 @@
 import tensorflow as tf
 import os
-import numpy as np
+
 from utils.DataGenerator import DataGenerator
 from models.Unet import Unet
 
@@ -14,9 +14,10 @@ test_dir = os.path.join(DATA_DIR,"test")
 img_width = 512
 img_height = 512
 img_channels = 1
+batch_size = 4
 
-train_generator = DataGenerator(data_dir=train_dir,batch_size=4,shape=(img_height,img_width,img_channels))
-val_generator = DataGenerator(data_dir=val_dir,batch_size=4,shape=(img_height,img_width,img_channels))
+train_generator = DataGenerator(data_dir=train_dir,batch_size=batch_size,shape=(img_height,img_width,img_channels))
+val_generator = DataGenerator(data_dir=val_dir,batch_size=batch_size,shape=(img_height,img_width,img_channels))
 
 unet = Unet(input_shape=(img_width,img_height,img_channels))
 unet.model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['acc'])

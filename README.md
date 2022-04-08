@@ -18,6 +18,14 @@ python train.py
 ```
 python evaluate.py
 ```
-5. Analyze Result
+5. Predict(Visualize) Model
+```
+python predict.py
+```
+6. Visualize Model(not yet)
+```
+python visualize.py
+```
+7. Analyze Result
 ```
 tensorboard --log_dir=logs --host={host} --port={port}

@@ -1,8 +1,8 @@
 import tensorflow as tf
 import os
 import numpy as np
-from utils import DataGenerator
-from models import Unet
+from utils.DataGenerator import DataGenerator
+from models.Unet import Unet
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(ROOT_DIR,"dataset")

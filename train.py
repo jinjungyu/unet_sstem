@@ -11,12 +11,12 @@ train_dir = os.path.join(DATA_DIR,"train")
 val_dir = os.path.join(DATA_DIR,"val")
 test_dir = os.path.join(DATA_DIR,"test")
 
-train_generator = DataGenerator(data_dir=train_dir)
-val_generator = DataGenerator(data_dir=val_dir)
-
 img_width = 512
 img_height = 512
 img_channels = 1
+
+train_generator = DataGenerator(data_dir=train_dir,batch_size=4,shape=(img_height,img_width,img_channels))
+val_generator = DataGenerator(data_dir=val_dir,batch_size=4,shape=(img_height,img_width,img_channels))
 
 unet = Unet(input_shape=(img_width,img_height,img_channels))
 unet.model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['acc'])

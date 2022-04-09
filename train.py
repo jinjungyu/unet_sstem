@@ -21,14 +21,18 @@ val_generator = DataGenerator(data_dir=val_dir,batch_size=batch_size,shape=(img_
 test_generator = DataGenerator(data_dir=test_dir,batch_size=batch_size,shape=(img_height,img_width,img_channels))
 
 unet = Unet(input_shape=(img_width,img_height,img_channels))
-unet.model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['acc'])
+metrics=[tf.keras.metrics.Accuracy(),
+         tf.keras.metrics.Precision(),
+         tf.keras.metrics.Recall(),
+         tf.keras.metrics.MeanIoU(num_classes=2)]
+unet.model.compile(optimizer='adam',loss='binary_crossentropy',metrics=[metrics])
 unet.model.summary()
 ####################
 
 model_path = os.path.join(ROOT_DIR,'model_best.h5')
 # Set Callback, Checkpoint
 callbacks = [
-             tf.keras.callbacks.ModelCheckpoint(model_path,monitor='val_acc',save_best_only=True),
+             tf.keras.callbacks.ModelCheckpoint(model_path,monitor='val_accuracy',save_best_only=True),
              tf.keras.callbacks.EarlyStopping(patience=100,monitor='val_loss'),
              tf.keras.callbacks.TensorBoard(log_dir=os.path.join(ROOT_DIR,'logs'))
 ]

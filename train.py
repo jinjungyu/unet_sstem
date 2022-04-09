@@ -32,13 +32,16 @@ unet.model.summary()
 model_path = os.path.join(ROOT_DIR,'model_best.h5')
 # Set Callback, Checkpoint
 callbacks = [
-             tf.keras.callbacks.ModelCheckpoint(model_path,monitor='val_accuracy',save_best_only=True),
+             tf.keras.callbacks.ModelCheckpoint(model_path,monitor='val_binary_accuracy',save_best_only=True),
              tf.keras.callbacks.EarlyStopping(patience=100,monitor='val_loss'),
              tf.keras.callbacks.TensorBoard(log_dir=os.path.join(ROOT_DIR,'logs'))
 ]
 # Train model
 history = unet.model.fit(train_generator,epochs=100,validation_data=val_generator,callbacks=callbacks)
 results = unet.model.evaluate(test_generator)
-print("Test Loss, Test Accuracy :",results)
+print("Test Result")
+print("Loss : ",results[0])
+print("Accuracy : ",results[2])
+print("IOU : ",results[-1])
 
 

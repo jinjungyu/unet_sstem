@@ -1,4 +1,4 @@
-# Semantic Segmentation Practice 2
+# Semantic Segmentation - UNet 2
 ssTem Dataset : dataset/train-volume.tif,train-labels.tif,test-volume.tif
 
 ## How to Setup and Train

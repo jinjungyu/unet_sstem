@@ -35,6 +35,6 @@ callbacks = [
 # Train model
 history = unet.model.fit(train_generator,epochs=100,validation_data=val_generator,callbacks=callbacks)
 results = unet.model.evaluate(test_generator)
-print("Test Loss : {}, Test Accuracy : {}".format(results))
+print("Test Loss, Test Accuracy :",results)
 
 

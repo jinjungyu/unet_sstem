@@ -10,22 +10,19 @@ git clone https://github.com/realJun9u/unet_sstem.git
 ```
 python setup.py
 ```
-3. Train Model
+3. Train and Evaluate Model
 ```
 python train.py
 ```
-4. Test Model
-```
-python evaluate.py
-```
-5. Predict(Visualize) Model
+4. Predict Model (Create Prediction Images in result directory)
 ```
 python predict.py
 ```
-6. Visualize Model(not yet)
+5. Visualize Model
 ```
 python visualize.py
 ```
-7. Analyze Result
+6. Analyze Result
 ```
-tensorboard --log_dir=logs --host={host} --port={port}
+tensorboard --logdir=logs --host={host} --port={port}
+```

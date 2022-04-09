@@ -1,3 +1,4 @@
+from cv2 import threshold
 import tensorflow as tf
 import os
 
@@ -21,10 +22,10 @@ val_generator = DataGenerator(data_dir=val_dir,batch_size=batch_size,shape=(img_
 test_generator = DataGenerator(data_dir=test_dir,batch_size=batch_size,shape=(img_height,img_width,img_channels))
 
 unet = Unet(input_shape=(img_width,img_height,img_channels))
-metrics=[tf.keras.metrics.Accuracy(),
+metrics=[tf.keras.metrics.BinaryAccuracy(threshold=0.5),
          tf.keras.metrics.Precision(),
          tf.keras.metrics.Recall(),
-         tf.keras.metrics.MeanIoU(num_classes=2)]
+         tf.keras.metrics.BinaryIoU((0,1),threshold=0.5)]
 unet.model.compile(optimizer='adam',loss='binary_crossentropy',metrics=[metrics])
 unet.model.summary()
 ####################

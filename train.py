@@ -1,4 +1,3 @@
-from cv2 import threshold
 import tensorflow as tf
 import os
 

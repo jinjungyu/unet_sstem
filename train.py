@@ -41,7 +41,7 @@ history = unet.model.fit(train_generator,epochs=100,validation_data=val_generato
 results = unet.model.evaluate(test_generator)
 print("Test Result")
 print("Loss : ",results[0])
-print("Accuracy : ",results[2])
+print("Accuracy : ",results[1])
 print("IOU : ",results[-1])
 
 

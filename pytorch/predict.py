@@ -63,8 +63,8 @@ with torch.no_grad():
         
         for i in range(input_.shape[0]):
             id = batch_size*(batch-1) + i
-            plt.imsave(os.path.join(result_dir,f"input_{i:03d}.png"),input_.squeeze(),cmap="gray")
-            plt.imsave(os.path.join(result_dir,f"label_{i:03d}.png"),label_.squeeze(),cmap="gray")
-            plt.imsave(os.path.join(result_dir,f"output_{i:03d}.png"),output_.squeeze(),cmap="gray")
+            plt.imsave(os.path.join(result_dir,f"input_{i:03d}.png"),input_[i].squeeze(),cmap="gray")
+            plt.imsave(os.path.join(result_dir,f"label_{i:03d}.png"),label_[i].squeeze(),cmap="gray")
+            plt.imsave(os.path.join(result_dir,f"output_{i:03d}.png"),output_[i].squeeze(),cmap="gray")
 
 print(f"AVERAGE TEST: BATCH {batch:04d} / {num_batch_test:04d} | LOSS {np.mean(loss_arr):.4f}")

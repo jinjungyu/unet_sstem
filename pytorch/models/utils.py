@@ -16,7 +16,7 @@ def load(ckpt_dir,net,optim):
     ckpt_list = os.listdir(ckpt_dir)
     ckpt_list.sort(key=lambda f:int(''.join(filter(str.isdigit,f))))
 
-    dict_model = torch.load(os.path.join(ckpt_dir,ckpt_dir[-1]))
+    dict_model = torch.load(os.path.join(ckpt_dir,ckpt_list[-1]))
 
     net.load_state_dict(dict_model['net'])
     optim.load_state_dict(dict_model['optim'])

@@ -31,3 +31,13 @@ python visualize.py
 ```bash
 tensorboard --logdir=logs --host={host} --port={port}
 ```
+
+### CUDA 버전, cuDNN 버전 확인
+1. CUDA 버전
+```bash
+nvcc -V
+```
+2. cuDNN 버전
+```bash
+cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+```

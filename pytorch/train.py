@@ -17,7 +17,7 @@ data_dir = os.path.join(root_dir,"dataset")
 train_dir = os.path.join(data_dir,"train")
 val_dir = os.path.join(data_dir,"val")
 ckpt_dir = os.path.join(root_dir,"checkpoint")
-log_dir = os.path.join(root_dir,"log")
+log_dir = os.path.join(root_dir,"logs")
 
 # 학습에 필요한 Parameters
 batch_size = 3

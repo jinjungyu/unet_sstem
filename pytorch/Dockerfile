@@ -11,4 +11,6 @@ WORKDIR /var
 
 RUN pip install -r requirement.txt
 
+WORKDIR /
+
 EXPOSE 32145

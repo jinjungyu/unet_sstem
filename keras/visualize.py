@@ -29,7 +29,7 @@ for i in range(3):
     ax[0].set_axis_off()
     ax[1].set_axis_off()
     ax[2].set_axis_off()
-    
+
     fig.suptitle("Train Data")
     fig.tight_layout()
     plt.show()

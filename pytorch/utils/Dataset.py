@@ -19,18 +19,18 @@ class Dataset(torch.utils.data.Dataset):
         return len(self.list_input)
     
     def __getitem__(self, idx):
-        input = np.load(os.path.join(self.data_dir,self.list_input[idx])).astype(np.float32)
-        label = np.load(os.path.join(self.data_dir,self.list_label[idx])).astype(np.float32)
+        input = np.load(os.path.join(self.data_dir,self.list_input[idx]))
+        label = np.load(os.path.join(self.data_dir,self.list_label[idx]))
         
-        input /= 255.0
-        label /= 255.0
+        input = input/255.0
+        label = label/255.0
         
         if input.ndim == 2:
             input = np.expand_dims(input,axis=-1)
         if label.ndim == 2:
             label = np.expand_dims(label,axis=-1)
         
-        data = {'input':input,'label':label}
+        data = (input, label)
         
         if self.transform:
             data = self.transform(data)
@@ -45,16 +45,15 @@ if __name__ == "__main__":
     
     train_dataset = Dataset(data_dir=train_dir)
     data = train_dataset.__getitem__(0)
-    X = data['input']
-    y = data['label']
+    X,Y = data
     
     fig, ax = plt.subplots(1,2)
     ax[0].imshow(X,cmap="gray")
     ax[0].set_title("Input")
     ax[0].axis('off')
     
-    ax[1].imshow(y,cmap="gray")
-    ax[1].set_title("Input")
+    ax[1].imshow(Y,cmap="gray")
+    ax[1].set_title("Label")
     ax[1].axis('off')
     
     fig.tight_layout()

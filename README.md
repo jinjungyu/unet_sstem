@@ -2,9 +2,14 @@
 ssTem Dataset : dataset/train-volume.tif,train-labels.tif,test-volume.tif
 
 ## How to Setup and Train
-1. clone repository
+0. clone repository
 ```
 git clone https://github.com/realJun9u/unet_sstem.git
+```
+1. Install Dependancy
+```
+# in keras or pytorch
+pip install -r requirement.txt
 ```
 2. Setup Dataset (Seperate Datasets in ./dataset)
 ```
